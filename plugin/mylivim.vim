@@ -94,7 +94,7 @@ autocmd FileType html inoremap \. &middot;
 "-------------------------------------------------------
 
 " Vim syntax file
-" Language:	php3 PHP 3.0
+" Language:	php PHP 3.0
 " Modificado: Bruno do nascimento Franco - <devlabbr@outlook.com>
 " Ultima_modificao: Qui 02 Fev 2020 13:02:46 BRT
 " Download: https://github.com/brnfra/web
@@ -114,21 +114,21 @@ autocmd FileType html inoremap \. &middot;
 " Email:        Subject: send syntax_vim.tgz
 " Last change:	1999 Jun 14
 "
-" Options       php3_sql_query = 1 for SQL syntax highligthing inside strings
-"               php3_minlines = x     to sync at least x lines backwards
+" Options       php_sql_query = 1 for SQL syntax highligthing inside strings
+"               php_minlines = x     to sync at least x lines backwards
 "
 "   2000-01-07 <verde (a) aurelio net>
-" added initialization of php3_minlines, php3_sql_query
-" added , and ; as php3Operator
-" added highlight on simple html tags inside php3String* (php3StringHtml)
-" added highlight for user functions                     (php3FunctionsMine) 
-" added themes support                                   (php3_syntax_theme)
+" added initialization of php_minlines, php_sql_query
+" added , and ; as phpOperator
+" added highlight on simple html tags inside phpString* (phpStringHtml)
+" added highlight for user functions                     (phpFunctionsMine) 
+" added themes support                                   (php_syntax_theme)
 "   the main idea is to highlight _everything_ on the file
 "   comments on gray (no color)
 "   available themes: forest1, forest2 
 "
-" just copy this file to ~/.php3.vim and put this line in your ~/.vimrc:
-" au! Syntax php3 so ~/.php3.vim
+" just copy this file to ~/.php.vim and put this line in your ~/.vimrc:
+" au! Syntax php so ~/.php.vim
 "set syntax=php
 
 
@@ -138,11 +138,11 @@ autocmd FileType php inoremap <? <?php<esc>10o<esc>i?><esc>9<up>i
 
 
 " *** user configuration
-let php3_minlines = 500
-"let php3_sql_query = 1
+let php_minlines = 500
+"let php_sql_query = 1
 
 "just comment this line for the default colors
-"let php3_syntax_theme = 'forest1'
+"let php_syntax_theme = 'forest1'
 
 
 
@@ -150,369 +150,369 @@ let php3_minlines = 500
 syn clear
 
 if !exists("main_syntax")
-  let main_syntax = 'php3'
+  let main_syntax = 'php'
 endif
 
 "if you'll put this file in your home dir, use absolute path to html.vim
 "so <sfile>:p:h/html.vim
 so /usr/share/vim/vim81/syntax/html.vim
 
-syn cluster htmlPreproc add=php3RegionInsideHtmlTags
+syn cluster htmlPreproc add=phpRegionInsideHtmlTags
 
-if exists( "php3_sql_query")
-  if php3_sql_query == 1
+if exists( "php_sql_query")
+  if php_sql_query == 1
 
     "if you'll put this file in your home dir, use absolute path to html.vim
-    "syn include @php3Sql <sfile>:p:h/sql.vim
-    syn include @php3Sql /usr/share/vim/vim81/syntax/sql.vim
+    "syn include @phpSql <sfile>:p:h/sql.vim
+    syn include @phpSql /usr/share/vim/vim81/syntax/sql.vim
     
   endif
 endif
-syn cluster php3Sql remove=sqlString,sqlComment
+syn cluster phpSql remove=sqlString,sqlComment
 
 syn case match
 
 " Env Variables
-syn keyword php3EnvVar SERVER_SOFTWARE SERVER_NAME SERVER_URL GATEWAY_INTERFACE   contained
-syn keyword php3EnvVar SERVER_PROTOCOL SERVER_PORT REQUEST_METHOD PATH_INFO  contained
-syn keyword php3EnvVar PATH_TRANSLATED SCRIPT_NAME QUERY_STRING REMOTE_HOST contained
-syn keyword php3EnvVar REMOTE_ADDR AUTH_TYPE REMOTE_USER CONTEN_TYPE  contained
-syn keyword php3EnvVar CONTENT_LENGTH HTTPS HTTPS_KEYSIZE HTTPS_SECRETKEYSIZE  contained
-syn keyword php3EnvVar HTTP_ACCECT HTTP_USER_AGENT HTTP_IF_MODIFIED_SINCE  contained
-syn keyword php3EnvVar HTTP_FROM HTTP_REFERER contained
+syn keyword phpEnvVar SERVER_SOFTWARE SERVER_NAME SERVER_URL GATEWAY_INTERFACE   contained
+syn keyword phpEnvVar SERVER_PROTOCOL SERVER_PORT REQUEST_METHOD PATH_INFO  contained
+syn keyword phpEnvVar PATH_TRANSLATED SCRIPT_NAME QUERY_STRING REMOTE_HOST contained
+syn keyword phpEnvVar REMOTE_ADDR AUTH_TYPE REMOTE_USER CONTEN_TYPE  contained
+syn keyword phpEnvVar CONTENT_LENGTH HTTPS HTTPS_KEYSIZE HTTPS_SECRETKEYSIZE  contained
+syn keyword phpEnvVar HTTP_ACCECT HTTP_USER_AGENT HTTP_IF_MODIFIED_SINCE  contained
+syn keyword phpEnvVar HTTP_FROM HTTP_REFERER contained
 
 " Internal Variables
-syn keyword php3IntVar GLOBALS contained
+syn keyword phpIntVar GLOBALS contained
 syn case ignore
-syn keyword php3IntVar GLOBALS php_errmsg php_self contained
+syn keyword phpIntVar GLOBALS php_errmsg php_self contained
 
 " Comment
-syn region php3Comment		start="/\*" skip="?>" end="\*/"  contained contains=php3Todo
-syn match php3Comment		"#.*$"  contained contains=php3Todo
-syn match php3Comment		"//.*$"  contained contains=php3Todo
+syn region phpComment		start="/\*" skip="?>" end="\*/"  contained contains=phpTodo
+syn match phpComment		"#.*$"  contained contains=phpTodo
+syn match phpComment		"//.*$"  contained contains=phpTodo
 
 " Function names
-syn keyword php3Functions  Abs contained
-syn keyword php3Functions  ada_afetch ada_autocommit ada_close ada_commit contained
-syn keyword php3Functions  ada_connect ada_exec ada_fetchrow ada_fieldname contained
-syn keyword php3Functions  ada_fieldnum ada_fieldtype ada_freeresult ada_numfields contained
-syn keyword php3Functions  ada_numrows ada_result ada_resultall ada_rollback contained
-syn keyword php3Functions  array arsort asort count current each end key ksort contained
-syn keyword php3Functions  list next pos prev reset rsort sizeof sort contained
-syn keyword php3Functions  bcadd bccomp bcdiv bcmod bcmul bcpow bcscale bcsqrt contained
-syn keyword php3Functions  bcsub contained
-syn keyword php3Functions  JDToGregorian GregorianToJD JDToJulian JulianToJD contained
-syn keyword php3Functions  JDToJewish JewishToJD JDToFrench FrenchToJD contained
-syn keyword php3Functions  JDMonthName JDDayOfWeek contained
-syn keyword php3Functions  checkdate date getdate gmdate mktime time microtime contained
-syn keyword php3Functions  set_time_limit contained
-syn keyword php3Functions  dbase_create dbase_open dbase_close dbase_pack contained
-syn keyword php3Functions  dbase_add_record dbase_delete_record dbase_get_record contained
-syn keyword php3Functions  dbase_numfields dbase_numrecords contained
-syn keyword php3Functions  dbmopen dbmclose dbmexists dbmfetch dbminsert contained
-syn keyword php3Functions  dbmreplace dbmdelete dbmfirstkey dbmnextkey dbmlist contained
-syn keyword php3Functions  chdir dir closedir opendir readdir rewindir contained
-syn keyword php3Functions  dl contained
-syn keyword php3Functions  escapeshellcmd exec system passthru virtual contained
-syn keyword php3Functions  filepro filepro_fieldname filepro_fieldtype contained
-syn keyword php3Functions  filepro_fieldwidth filepro_retrieve contained
-syn keyword php3Functions  filepro_fieldcount filepro_rowcount contained
-syn keyword php3Functions  basename chgrp chmod chown clearstatcache copy contained
-syn keyword php3Functions  dirname fclose feof fgetc fgets fegtss file contained
-syn keyword php3Functions  file_exists fileatume filectime filegroup fileinode contained
-syn keyword php3Functions  filemtime fileowner fileperms filesize filetype contained
-syn keyword php3Functions  fileumask fopen fpassthru fputs fseek ftell contained
-syn keyword php3Functions  is_dir is_executable is_file is_link is_readable contained
-syn keyword php3Functions  is_writeable link linkinfo mkdir pclose popen contained
-syn keyword php3Functions  readfile readlink rename rewind rmdir stat contained
-syn keyword php3Functions  symlink tempnam touch umask unlink contained
-syn keyword php3Functions  getallheaders header setcookie contained
-syn keyword php3Functions  GetImageSize ImageArc ImageChar ImageCharUp contained
-syn keyword php3Functions  ImageColorAllocate ImageColorTransparent  contained
-syn keyword php3Functions  ImageCopyResized ImageCreate ImageCreateFromGif contained
-syn keyword php3Functions  ImageDashedLine ImageDestroy ImageFill contained
-syn keyword php3Functions  ImageFilledPolygon ImageFilledRectangle contained
-syn keyword php3Functions  ImageFillToBorder ImageFontHeight ImageFontWidth contained
-syn keyword php3Functions  ImageGif ImageInterlace ImageLine ImageLoadFont contained
-syn keyword php3Functions  ImagePolygon ImageRectangle ImageSetPixel contained
-syn keyword php3Functions  ImageString ImageStringUp ImageSX ImageSY contained
-syn keyword php3Functions  ImageTTFText ImageColorAt ImageColorClosest contained
-syn keyword php3Functions  ImageColorExact ImageColorSet ImageColorsForIndex contained
-syn keyword php3Functions  ImageColorsTotal contained
-syn keyword php3Functions  imap_append imap_base64 imap_body imap_check contained
-syn keyword php3Functions  imap_close imap_createmailbox imap_delete contained
-syn keyword php3Functions  imap_deletemailbox imap_expunge imap_fetchbody contained
-syn keyword php3Functions  imap_fetchstructure imap_header imap_headerinfo contained
-syn keyword php3Functions  imap_headers imap_listmailbox imap_listsubscribed contained
-syn keyword php3Functions  imap_mail_copy imap_mail_move imap_num_msg contained
-syn keyword php3Functions  imap_num_recent imap_open imap_ping contained
-syn keyword php3Functions  imap_renamemailbox map_reopen imap_subscribe contained
-syn keyword php3Functions  imap_undelete imap_unsubscribe imap_qprint contained
-syn keyword php3Functions  imap_8bit contained
-syn keyword php3Functions  error_log error_reporting getenv get_cfg_var contained
-syn keyword php3Functions  get_current_user getlastmod getmyinode getmypid contained
-syn keyword php3Functions  getmyuid phpinfo phpversion putenv contained
-syn keyword php3Functions  ldap_add ldap_bind ldap_close ldap_connect contained
-syn keyword php3Functions  ldap_count_entries ldap_delete ldap_dn2ufn contained
-syn keyword php3Functions  ldap_first_attribute ldap_first_entry contained
-syn keyword php3Functions  ldap_free_entry ldap_free_result ldap_get_attributes contained
-syn keyword php3Functions  ldap_get_dn ldap_get_entries ldap_get_values contained
-syn keyword php3Functions  ldap_list ldap_modify ldap_next_attribute contained
-syn keyword php3Functions  ldap_next_entry ldap_read ldap_search contained
-syn keyword php3Functions  ldap_unbind contained
-syn keyword php3Functions  mail contained
-syn keyword php3Functions  Abs Acos Asin Atan BinDec Ceil Cos DecBin DecHex contained
-syn keyword php3Functions  DecOct Exp Floor getrandmax HexDec Log Log10 contained
-syn keyword php3Functions  max min OctDec pi pow rand round Sin Sqrt srand contained
-syn keyword php3Functions  Tan contained
-syn keyword php3Functions  sleep usleep uniqid leak contained
-syn keyword php3Functions  msql msql_close msql_connect msql_create_db contained
-syn keyword php3Functions  msql_createdb msql_data_seek msql_dbname contained
-syn keyword php3Functions  msql_drop_db msql_dropdb msql_error contained
-syn keyword php3Functions  msql_fetch_array msql_fetch_field msql_fetch_object contained
-syn keyword php3Functions  msql_fetch_row msql_fieldname msql_field_seek contained
-syn keyword php3Functions  msql_fieldtable msql_fieldtype msql_fieldflags contained
-syn keyword php3Functions  msql_fieldlen msql_free_result msql_freeresult contained
-syn keyword php3Functions  msql_list_fields msql_listfields msql_list_dbs contained
-syn keyword php3Functions  msql_listdbs msql_list_tables msql_listtables contained
-syn keyword php3Functions  msql_num_fields msql_num_rows msql_numfields contained
-syn keyword php3Functions  msql_numrows msql_pconnect msql_query contained
-syn keyword php3Functions  msql_regcase msql_result msql_select_db contained
-syn keyword php3Functions  msql_selectdb msql_tablename contained
-syn keyword php3Functions  mysql_affected_rows mysql_close mysql_connect contained
-syn keyword php3Functions  mysql_create_db mysql_data_seek mysql_dbname contained
-syn keyword php3Functions  mysql_db_query mysql_drop_db mysql_errno contained
-syn keyword php3Functions  mysql_error mysql_fetch_array mysql_fetch_field contained
-syn keyword php3Functions  mysql_fetch_lengths mysql_fetch_object contained
-syn keyword php3Functions  mysql_fetch_row mysql_field_name mysql_field_seek contained
-syn keyword php3Functions  mysql_field_table mysql_field_type mysql_field_flags contained
-syn keyword php3Functions  mysql_field_len mysql_free_result mysql_insert_id contained
-syn keyword php3Functions  mysql_list_dbs mysql_list_tables mysql_num_fields contained
-syn keyword php3Functions  mysql_num_rows mysql_pconnect mysql_query contained
-syn keyword php3Functions  mysql_result mysql_select_db mysql_tablename contained
-syn keyword php3Functions  sybase_close sybase_connect sybase_data_seek contained
-syn keyword php3Functions  sybase_fetch_array sybase_fetch_field contained
-syn keyword php3Functions  sybase_fetch_object sybase_fetch_row sybase_field_seek contained
-syn keyword php3Functions  sybase_num_fields sybase_num_rows sybase_pconnect contained
-syn keyword php3Functions  sybase_query sybase_result sybase_select_db contained
-syn keyword php3Functions  fsockopen gethostbyaddr gethostbyname openlog contained
-syn keyword php3Functions  syslog closelog debugger_on debugger_off contained
-syn keyword php3Functions  odbc_autocommit odbc_binmode odbc_close contained
-syn keyword php3Functions  odbc_close_all odbc_commit odbc_connect contained
-syn keyword php3Functions  odbc_cursor odbc_do odbc_exec odbc_execute contained
-syn keyword php3Functions  odbc_fetch_into odbc_fetch_row odbc_field_name contained
-syn keyword php3Functions  odbc_field_num odbc_field_type odbc_free_result contained
-syn keyword php3Functions  odbc_longreadlen odbc_num_fields odbc_pconnect contained
-syn keyword php3Functions  odbc_prepare odbc_num_rows odbc_result contained
-syn keyword php3Functions  odbc_result_all odbc_rollback contained
-syn keyword php3Functions  Ora_Close Ora_ColumnName Ora_ColumnType contained
-syn keyword php3Functions  Ora_Commit Ora_CommitOff Ora_CommitOn Ora_Error contained
-syn keyword php3Functions  Ora_ErrorCode Ora_Exec Ora_Fetch Ora_GetColumn contained
-syn keyword php3Functions  Ora_Logoff Ora_Logon Ora_Open Ora_Parse contained
-syn keyword php3Functions  Ora_Rollback contained
-syn keyword php3Functions  Ora_Close Ora_ColumnName Ora_ColumnType Ora_Commit contained
-syn keyword php3Functions  Ora_CommitOff Ora_CommitOn Ora_Error Ora_ErrorCode contained
-syn keyword php3Functions  Ora_Exec Ora_Fetch Ora_GetColumn Ora_Logoff contained
-syn keyword php3Functions  Ora_Logon Ora_Open Ora_Parse Ora_Rollback contained
-syn keyword php3Functions  pg_Close pg_cmdTuples pg_Connect pg_DBname contained
-syn keyword php3Functions  pg_Fetch_Array pg_Fetch_Object pg_Fetch_Row contained
-syn keyword php3Functions  pg_ErrorMessage pg_Exec pg_FieldIsNull pg_FieldName contained
-syn keyword php3Functions  pg_FieldNum pg_FieldPrtLen pg_FieldSize contained
-syn keyword php3Functions  pg_FreeResult pg_GetLastOid pg_Host pg_loclose contained
-syn keyword php3Functions  pg_locreate pg_loopen pg_loread pg_loreadall contained
-syn keyword php3Functions  pg_lounlink pg_lowrite pg_NumFields pg_NumRows contained
-syn keyword php3Functions  pg_Options pg_pConnect pg_Port pg_Result contained
-syn keyword php3Functions  pg_tty contained
-syn keyword php3Functions  ereg ereg_replace eregi eregi_replace split contained
-syn keyword php3Functions  sql_regcase contained
-syn keyword php3Functions  solid_close solid_connect solid_exec contained
-syn keyword php3Functions  solid_fetchrow solid_fieldname solid_fieldnum contained
-syn keyword php3Functions  solid_freeresult solid_numfields solid_numrows contained
-syn keyword php3Functions  solid_result contained
-syn keyword php3Functions  snmpget snmpwalk contained
-syn keyword php3Functions  AddSlashes Chop Chr crypt echo explode flush contained
-syn keyword php3Functions  htmlspecialchars htmlentities implode join contained
-syn keyword php3Functions  nl2br Ord print printf QuoteMeta rawurldecode contained
-syn keyword php3Functions  rawurlencode setlocale sprintf strchr StripSlashes contained
-syn keyword php3Functions  strlen strtok strrchr strrev strstr contained
-syn keyword php3Functions  strtolower strtoupper strtr substr ucfirst contained
-syn keyword php3Functions  md5 soundex parse_str contained
-syn keyword php3Functions  parse_url urldecode urlencode base64_encode contained
-syn keyword php3Functions  base64_decode contained
-syn keyword php3Functions  gettype intval doubleval strval is_array contained
-syn keyword php3Functions  is_double is_integer is_long is_object is_real contained
-syn keyword php3Functions  is_string isset settype empty eval contained
-syn keyword php3Functions  die contained
+syn keyword phpFunctions  Abs contained
+syn keyword phpFunctions  ada_afetch ada_autocommit ada_close ada_commit contained
+syn keyword phpFunctions  ada_connect ada_exec ada_fetchrow ada_fieldname contained
+syn keyword phpFunctions  ada_fieldnum ada_fieldtype ada_freeresult ada_numfields contained
+syn keyword phpFunctions  ada_numrows ada_result ada_resultall ada_rollback contained
+syn keyword phpFunctions  array arsort asort count current each end key ksort contained
+syn keyword phpFunctions  list next pos prev reset rsort sizeof sort contained
+syn keyword phpFunctions  bcadd bccomp bcdiv bcmod bcmul bcpow bcscale bcsqrt contained
+syn keyword phpFunctions  bcsub contained
+syn keyword phpFunctions  JDToGregorian GregorianToJD JDToJulian JulianToJD contained
+syn keyword phpFunctions  JDToJewish JewishToJD JDToFrench FrenchToJD contained
+syn keyword phpFunctions  JDMonthName JDDayOfWeek contained
+syn keyword phpFunctions  checkdate date getdate gmdate mktime time microtime contained
+syn keyword phpFunctions  set_time_limit contained
+syn keyword phpFunctions  dbase_create dbase_open dbase_close dbase_pack contained
+syn keyword phpFunctions  dbase_add_record dbase_delete_record dbase_get_record contained
+syn keyword phpFunctions  dbase_numfields dbase_numrecords contained
+syn keyword phpFunctions  dbmopen dbmclose dbmexists dbmfetch dbminsert contained
+syn keyword phpFunctions  dbmreplace dbmdelete dbmfirstkey dbmnextkey dbmlist contained
+syn keyword phpFunctions  chdir dir closedir opendir readdir rewindir contained
+syn keyword phpFunctions  dl contained
+syn keyword phpFunctions  escapeshellcmd exec system passthru virtual contained
+syn keyword phpFunctions  filepro filepro_fieldname filepro_fieldtype contained
+syn keyword phpFunctions  filepro_fieldwidth filepro_retrieve contained
+syn keyword phpFunctions  filepro_fieldcount filepro_rowcount contained
+syn keyword phpFunctions  basename chgrp chmod chown clearstatcache copy contained
+syn keyword phpFunctions  dirname fclose feof fgetc fgets fegtss file contained
+syn keyword phpFunctions  file_exists fileatume filectime filegroup fileinode contained
+syn keyword phpFunctions  filemtime fileowner fileperms filesize filetype contained
+syn keyword phpFunctions  fileumask fopen fpassthru fputs fseek ftell contained
+syn keyword phpFunctions  is_dir is_executable is_file is_link is_readable contained
+syn keyword phpFunctions  is_writeable link linkinfo mkdir pclose popen contained
+syn keyword phpFunctions  readfile readlink rename rewind rmdir stat contained
+syn keyword phpFunctions  symlink tempnam touch umask unlink contained
+syn keyword phpFunctions  getallheaders header setcookie contained
+syn keyword phpFunctions  GetImageSize ImageArc ImageChar ImageCharUp contained
+syn keyword phpFunctions  ImageColorAllocate ImageColorTransparent  contained
+syn keyword phpFunctions  ImageCopyResized ImageCreate ImageCreateFromGif contained
+syn keyword phpFunctions  ImageDashedLine ImageDestroy ImageFill contained
+syn keyword phpFunctions  ImageFilledPolygon ImageFilledRectangle contained
+syn keyword phpFunctions  ImageFillToBorder ImageFontHeight ImageFontWidth contained
+syn keyword phpFunctions  ImageGif ImageInterlace ImageLine ImageLoadFont contained
+syn keyword phpFunctions  ImagePolygon ImageRectangle ImageSetPixel contained
+syn keyword phpFunctions  ImageString ImageStringUp ImageSX ImageSY contained
+syn keyword phpFunctions  ImageTTFText ImageColorAt ImageColorClosest contained
+syn keyword phpFunctions  ImageColorExact ImageColorSet ImageColorsForIndex contained
+syn keyword phpFunctions  ImageColorsTotal contained
+syn keyword phpFunctions  imap_append imap_base64 imap_body imap_check contained
+syn keyword phpFunctions  imap_close imap_createmailbox imap_delete contained
+syn keyword phpFunctions  imap_deletemailbox imap_expunge imap_fetchbody contained
+syn keyword phpFunctions  imap_fetchstructure imap_header imap_headerinfo contained
+syn keyword phpFunctions  imap_headers imap_listmailbox imap_listsubscribed contained
+syn keyword phpFunctions  imap_mail_copy imap_mail_move imap_num_msg contained
+syn keyword phpFunctions  imap_num_recent imap_open imap_ping contained
+syn keyword phpFunctions  imap_renamemailbox map_reopen imap_subscribe contained
+syn keyword phpFunctions  imap_undelete imap_unsubscribe imap_qprint contained
+syn keyword phpFunctions  imap_8bit contained
+syn keyword phpFunctions  error_log error_reporting getenv get_cfg_var contained
+syn keyword phpFunctions  get_current_user getlastmod getmyinode getmypid contained
+syn keyword phpFunctions  getmyuid phpinfo phpversion putenv contained
+syn keyword phpFunctions  ldap_add ldap_bind ldap_close ldap_connect contained
+syn keyword phpFunctions  ldap_count_entries ldap_delete ldap_dn2ufn contained
+syn keyword phpFunctions  ldap_first_attribute ldap_first_entry contained
+syn keyword phpFunctions  ldap_free_entry ldap_free_result ldap_get_attributes contained
+syn keyword phpFunctions  ldap_get_dn ldap_get_entries ldap_get_values contained
+syn keyword phpFunctions  ldap_list ldap_modify ldap_next_attribute contained
+syn keyword phpFunctions  ldap_next_entry ldap_read ldap_search contained
+syn keyword phpFunctions  ldap_unbind contained
+syn keyword phpFunctions  mail contained
+syn keyword phpFunctions  Abs Acos Asin Atan BinDec Ceil Cos DecBin DecHex contained
+syn keyword phpFunctions  DecOct Exp Floor getrandmax HexDec Log Log10 contained
+syn keyword phpFunctions  max min OctDec pi pow rand round Sin Sqrt srand contained
+syn keyword phpFunctions  Tan contained
+syn keyword phpFunctions  sleep usleep uniqid leak contained
+syn keyword phpFunctions  msql msql_close msql_connect msql_create_db contained
+syn keyword phpFunctions  msql_createdb msql_data_seek msql_dbname contained
+syn keyword phpFunctions  msql_drop_db msql_dropdb msql_error contained
+syn keyword phpFunctions  msql_fetch_array msql_fetch_field msql_fetch_object contained
+syn keyword phpFunctions  msql_fetch_row msql_fieldname msql_field_seek contained
+syn keyword phpFunctions  msql_fieldtable msql_fieldtype msql_fieldflags contained
+syn keyword phpFunctions  msql_fieldlen msql_free_result msql_freeresult contained
+syn keyword phpFunctions  msql_list_fields msql_listfields msql_list_dbs contained
+syn keyword phpFunctions  msql_listdbs msql_list_tables msql_listtables contained
+syn keyword phpFunctions  msql_num_fields msql_num_rows msql_numfields contained
+syn keyword phpFunctions  msql_numrows msql_pconnect msql_query contained
+syn keyword phpFunctions  msql_regcase msql_result msql_select_db contained
+syn keyword phpFunctions  msql_selectdb msql_tablename contained
+syn keyword phpFunctions  mysqli_affected_rows mysqli_close mysqli_connect contained
+syn keyword phpFunctions  mysqli_create_db mysqli_data_seek mysqli_dbname contained
+syn keyword phpFunctions  mysqli_db_query mysqli_drop_db mysqli_errno contained
+syn keyword phpFunctions  mysqli_error mysqli_fetch_array mysqli_fetch_field contained
+syn keyword phpFunctions  mysqli_fetch_lengths mysqli_fetch_object contained
+syn keyword phpFunctions  mysqli_fetch_row mysqli_field_name mysqli_field_seek contained
+syn keyword phpFunctions  mysqli_field_table mysqli_field_type mysqli_field_flags contained
+syn keyword phpFunctions  mysqli_field_len mysqli_free_result mysqli_insert_id contained
+syn keyword phpFunctions  mysqli_list_dbs mysqli_list_tables mysqli_num_fields contained
+syn keyword phpFunctions  mysqli_num_rows mysqli_pconnect mysqli_query contained
+syn keyword phpFunctions  mysqli_result mysqli_select_db mysqli_tablename contained
+syn keyword phpFunctions  sybase_close sybase_connect sybase_data_seek contained
+syn keyword phpFunctions  sybase_fetch_array sybase_fetch_field contained
+syn keyword phpFunctions  sybase_fetch_object sybase_fetch_row sybase_field_seek contained
+syn keyword phpFunctions  sybase_num_fields sybase_num_rows sybase_pconnect contained
+syn keyword phpFunctions  sybase_query sybase_result sybase_select_db contained
+syn keyword phpFunctions  fsockopen gethostbyaddr gethostbyname openlog contained
+syn keyword phpFunctions  syslog closelog debugger_on debugger_off contained
+syn keyword phpFunctions  odbc_autocommit odbc_binmode odbc_close contained
+syn keyword phpFunctions  odbc_close_all odbc_commit odbc_connect contained
+syn keyword phpFunctions  odbc_cursor odbc_do odbc_exec odbc_execute contained
+syn keyword phpFunctions  odbc_fetch_into odbc_fetch_row odbc_field_name contained
+syn keyword phpFunctions  odbc_field_num odbc_field_type odbc_free_result contained
+syn keyword phpFunctions  odbc_longreadlen odbc_num_fields odbc_pconnect contained
+syn keyword phpFunctions  odbc_prepare odbc_num_rows odbc_result contained
+syn keyword phpFunctions  odbc_result_all odbc_rollback contained
+syn keyword phpFunctions  Ora_Close Ora_ColumnName Ora_ColumnType contained
+syn keyword phpFunctions  Ora_Commit Ora_CommitOff Ora_CommitOn Ora_Error contained
+syn keyword phpFunctions  Ora_ErrorCode Ora_Exec Ora_Fetch Ora_GetColumn contained
+syn keyword phpFunctions  Ora_Logoff Ora_Logon Ora_Open Ora_Parse contained
+syn keyword phpFunctions  Ora_Rollback contained
+syn keyword phpFunctions  Ora_Close Ora_ColumnName Ora_ColumnType Ora_Commit contained
+syn keyword phpFunctions  Ora_CommitOff Ora_CommitOn Ora_Error Ora_ErrorCode contained
+syn keyword phpFunctions  Ora_Exec Ora_Fetch Ora_GetColumn Ora_Logoff contained
+syn keyword phpFunctions  Ora_Logon Ora_Open Ora_Parse Ora_Rollback contained
+syn keyword phpFunctions  pg_Close pg_cmdTuples pg_Connect pg_DBname contained
+syn keyword phpFunctions  pg_Fetch_Array pg_Fetch_Object pg_Fetch_Row contained
+syn keyword phpFunctions  pg_ErrorMessage pg_Exec pg_FieldIsNull pg_FieldName contained
+syn keyword phpFunctions  pg_FieldNum pg_FieldPrtLen pg_FieldSize contained
+syn keyword phpFunctions  pg_FreeResult pg_GetLastOid pg_Host pg_loclose contained
+syn keyword phpFunctions  pg_locreate pg_loopen pg_loread pg_loreadall contained
+syn keyword phpFunctions  pg_lounlink pg_lowrite pg_NumFields pg_NumRows contained
+syn keyword phpFunctions  pg_Options pg_pConnect pg_Port pg_Result contained
+syn keyword phpFunctions  pg_tty contained
+syn keyword phpFunctions  ereg ereg_replace eregi eregi_replace split contained
+syn keyword phpFunctions  sql_regcase contained
+syn keyword phpFunctions  solid_close solid_connect solid_exec contained
+syn keyword phpFunctions  solid_fetchrow solid_fieldname solid_fieldnum contained
+syn keyword phpFunctions  solid_freeresult solid_numfields solid_numrows contained
+syn keyword phpFunctions  solid_result contained
+syn keyword phpFunctions  snmpget snmpwalk contained
+syn keyword phpFunctions  AddSlashes Chop Chr crypt echo explode flush contained
+syn keyword phpFunctions  htmlspecialchars htmlentities implode join contained
+syn keyword phpFunctions  nl2br Ord print printf QuoteMeta rawurldecode contained
+syn keyword phpFunctions  rawurlencode setlocale sprintf strchr StripSlashes contained
+syn keyword phpFunctions  strlen strtok strrchr strrev strstr contained
+syn keyword phpFunctions  strtolower strtoupper strtr substr ucfirst contained
+syn keyword phpFunctions  md5 soundex parse_str contained
+syn keyword phpFunctions  parse_url urldecode urlencode base64_encode contained
+syn keyword phpFunctions  base64_decode contained
+syn keyword phpFunctions  gettype intval doubleval strval is_array contained
+syn keyword phpFunctions  is_double is_integer is_long is_object is_real contained
+syn keyword phpFunctions  is_string isset settype empty eval contained
+syn keyword phpFunctions  die contained
 
 " Identifier
-syn match  php3Identifier "$\{1,}[a-zA-Z_][a-zA-Z0-9_]*" contained contains=php3EnvVar,php3IntVar
-syn match  php3Identifier "${"me=e-1,he=e-1 contained
+syn match  phpIdentifier "$\{1,}[a-zA-Z_][a-zA-Z0-9_]*" contained contains=phpEnvVar,phpIntVar
+syn match  phpIdentifier "${"me=e-1,he=e-1 contained
 
 " Conditional
-syn keyword php3Conditional  if else elseif endif switch endswitch contained
+syn keyword phpConditional  if else elseif endif switch endswitch contained
 
 " Repeat
-syn keyword php3Repeat  do for while endwhile contained
+syn keyword phpRepeat  do for while endwhile contained
 
 " Repeat
-syn keyword php3Label  case default switch  contained
+syn keyword phpLabel  case default switch  contained
 
 " Statement
-syn keyword php3Statement  break return continue exit contained
+syn keyword phpStatement  break return continue exit contained
 
 " Keyword
-syn keyword php3Keyword var contained
+syn keyword phpKeyword var contained
 
 " Structure
-syn keyword php3Structure class extends contained
+syn keyword phpStructure class extends contained
 
 " StorageClass
-syn keyword php3StorageClass global static contained
+syn keyword phpStorageClass global static contained
 
 " Operator
-syn match php3Operator  "[-=+%^&|*!.~?:]" contained
-syn match php3Operator  "[-+*/%^&|.]=" contained
-syn match php3Operator  "/[^*/]"me=e-1 contained
-syn match php3Operator  "/$" contained
-syn match php3Operator  "&&\|\<and\>" contained
-syn match php3Operator  "||\|\<x\=or\>" contained
-syn match php3Relation  "[!=<>]=" contained
-syn match php3Relation  "[<>]" contained
+syn match phpOperator  "[-=+%^&|*!.~?:]" contained
+syn match phpOperator  "[-+*/%^&|.]=" contained
+syn match phpOperator  "/[^*/]"me=e-1 contained
+syn match phpOperator  "/$" contained
+syn match phpOperator  "&&\|\<and\>" contained
+syn match phpOperator  "||\|\<x\=or\>" contained
+syn match phpRelation  "[!=<>]=" contained
+syn match phpRelation  "[<>]" contained
 
 " Include
-syn keyword php3Include  include require contained
+syn keyword phpInclude  include require contained
 
 " Define
-syn keyword php3Define  Function cfunction new contained
+syn keyword phpDefine  Function cfunction new contained
 
 " Boolean
-syn keyword php3Boolean true false contained
+syn keyword phpBoolean true false contained
 
 " String
-syn region php3StringDouble keepend matchgroup=None start=+"+ skip=+\\\\\|\\"+  end=+"+ contains=php3StringHtml,php3Identifier,php3SpecialChar,@php3Sql contained
-syn region php3StringSingle keepend matchgroup=None start=+'+ skip=+\\\\\|\\'+  end=+'+ contains=php3StringHtml,php3SpecialChar,@php3Sql contained
+syn region phpStringDouble keepend matchgroup=None start=+"+ skip=+\\\\\|\\"+  end=+"+ contains=phpStringHtml,phpIdentifier,phpSpecialChar,@phpSql contained
+syn region phpStringSingle keepend matchgroup=None start=+'+ skip=+\\\\\|\\'+  end=+'+ contains=phpStringHtml,phpSpecialChar,@phpSql contained
 
 " Number
-syn match php3Number  "-\=\<\d\+\>" contained
+syn match phpNumber  "-\=\<\d\+\>" contained
 
 " Float
-syn match php3Float  "\(-\=\<\d+\|-\=\)\.\d\+\>" contained
+syn match phpFloat  "\(-\=\<\d+\|-\=\)\.\d\+\>" contained
 
 " SpecialChar
-syn match php3SpecialChar "\\[abcfnrtyv\\]" contained
-syn match php3SpecialChar "\\\d\{3}" contained contains=php3OctalError
-syn match php3SpecialChar "\\x[0-9a-fA-F]\{2}" contained
+syn match phpSpecialChar "\\[abcfnrtyv\\]" contained
+syn match phpSpecialChar "\\\d\{3}" contained contains=phpOctalError
+syn match phpSpecialChar "\\x[0-9a-fA-F]\{2}" contained
 
 " Error
-syn match php3OctalError "[89]" contained
-syn match php3ParentError "[)}\]]" contained
+syn match phpOctalError "[89]" contained
+syn match phpParentError "[)}\]]" contained
 
 " Todo
-syn keyword php3Todo TODO Todo todo contained
+syn keyword phpTodo TODO Todo todo contained
 
 "--aurélio's hacks 
-syn match   php3Operator  "[;,]" contained
-syn match   php3StringHtml "<\(/\{0,1}\([biup]\|li\|ul\|h[1-6]\)\|[hb]r\)>" contained
+syn match   phpOperator  "[;,]" contained
+syn match   phpStringHtml "<\(/\{0,1}\([biup]\|li\|ul\|h[1-6]\)\|[hb]r\)>" contained
 syn case match
 "user functions literally
-syn keyword php3FunctionsMine  ErroSai ChkSenhaTmp GeraSenhaTmp contained
+syn keyword phpFunctionsMine  ErroSai ChkSenhaTmp GeraSenhaTmp contained
 "user functions with a prefix
-syn match   php3FunctionsMine  "\<\(Bd\|Num\|Html\|Ped\|Form\)[A-Z2][A-Za-z0-9_]*\>" contained
+syn match   phpFunctionsMine  "\<\(Bd\|Num\|Html\|Ped\|Form\)[A-Z2][A-Za-z0-9_]*\>" contained
 syn case ignore
 "--end aurélio's hacks
 
 
 " Parents
-syn cluster php3Inside contains=php3Comment,php3Functions,php3FunctionsMine,php3Identifier,php3Conditional,php3Repeat,php3Label,php3Statement,php3Operator,php3Relation,php3StringSingle,php3StringDouble,php3Number,php3Float,php3SpecialChar,php3Parent,php3ParentError,php3Include,php3Keyword,php3IdentifierParent,php3Boolean,php3Structure
+syn cluster phpInside contains=phpComment,phpFunctions,phpFunctionsMine,phpIdentifier,phpConditional,phpRepeat,phpLabel,phpStatement,phpOperator,phpRelation,phpStringSingle,phpStringDouble,phpNumber,phpFloat,phpSpecialChar,phpParent,phpParentError,phpInclude,phpKeyword,phpIdentifierParent,phpBoolean,phpStructure
 
-syn cluster php3Top contains=@php3Inside,php3Define,php3ParentError,php3StorageClass
+syn cluster phpTop contains=@phpInside,phpDefine,phpParentError,phpStorageClass
 
-syn region php3Parent	matchgroup=Delimiter start="(" end=")" contained contains=@php3Inside
-syn region php3Parent	matchgroup=Delimiter start="{" end="}" contained contains=@php3Top
-syn region php3Parent	matchgroup=Delimiter start="\[" end="\]" contained contains=@php3Inside
+syn region phpParent	matchgroup=Delimiter start="(" end=")" contained contains=@phpInside
+syn region phpParent	matchgroup=Delimiter start="{" end="}" contained contains=@phpTop
+syn region phpParent	matchgroup=Delimiter start="\[" end="\]" contained contains=@phpInside
 
-syn region php3Region keepend matchgroup=Delimiter start="<?\(php\)\=" skip=+".\{-}?>.\{-}"\|'.\{-}?>.\{-}'\|/\*.\{-}?>.\{-}\*/+ end="?>" contains=@php3Top
-syn region php3Region matchgroup=Delimiter start="<?\(php\)\=" end="?>" contains=@php3Top contained
-syn region php3RegionInsideHtmlTags keepend matchgroup=Delimiter start="<?\(php\)\=" skip=+".\{-}?>.\{-}"\|'.\{-}?>.\{-}'\|/\*.\{-}?>.\{-}\*/+ end="?>" contains=@php3Top contained
+syn region phpRegion keepend matchgroup=Delimiter start="<?\(php\)\=" skip=+".\{-}?>.\{-}"\|'.\{-}?>.\{-}'\|/\*.\{-}?>.\{-}\*/+ end="?>" contains=@phpTop
+syn region phpRegion matchgroup=Delimiter start="<?\(php\)\=" end="?>" contains=@phpTop contained
+syn region phpRegionInsideHtmlTags keepend matchgroup=Delimiter start="<?\(php\)\=" skip=+".\{-}?>.\{-}"\|'.\{-}?>.\{-}'\|/\*.\{-}?>.\{-}\*/+ end="?>" contains=@phpTop contained
 
-syn region php3Region keepend matchgroup=Delimiter start=+<script language="php">+ skip=+".\{-}</script>.\{-}"\|'.\{-}</script>.\{-}'\|/\*.\{-}</script>.\{-}\*/+ end=+</script>+ contains=@php3Top
-syn region php3Region matchgroup=Delimiter start=+<script language="php">+ end=+</script>+ contains=@php3Top contained
-syn region php3RegionInsideHtmlTags keepend matchgroup=Delimiter start=+<script language="php">+ skip=+".\{-}</script>.\{-}"\|'.\{-}</script>.\{-}'\|/\*.\{-}</script>.\{-}\*/+ end=+</script>+ contains=@php3Top contained
+syn region phpRegion keepend matchgroup=Delimiter start=+<script language="php">+ skip=+".\{-}</script>.\{-}"\|'.\{-}</script>.\{-}'\|/\*.\{-}</script>.\{-}\*/+ end=+</script>+ contains=@phpTop
+syn region phpRegion matchgroup=Delimiter start=+<script language="php">+ end=+</script>+ contains=@phpTop contained
+syn region phpRegionInsideHtmlTags keepend matchgroup=Delimiter start=+<script language="php">+ skip=+".\{-}</script>.\{-}"\|'.\{-}</script>.\{-}'\|/\*.\{-}</script>.\{-}\*/+ end=+</script>+ contains=@phpTop contained
 
 " sync
-if exists("php3_minlines")
-  exec "syn sync minlines=" . php3_minlines
+if exists("php_minlines")
+  exec "syn sync minlines=" . php_minlines
 endif
 
-if !exists("did_php3_syntax_inits")
-  let did_php3_syntax_inits = 1
+if !exists("did_php_syntax_inits")
+  let did_php_syntax_inits = 1
   
   "default colors
-  if !exists("php3_syntax_theme")
-    hi link php3Comment                   Comment
-    hi link php3Boolean                   Boolean
-    hi link php3StorageClass              StorageClass
-    hi link php3Structure                 Structure
-    hi link php3StringSingle              String
-    hi link php3StringDouble              String
-    hi link php3Number                    Number
-    hi link php3Float                     Float
-    hi php3Identifier guifg=DarkGray ctermfg=Brown
-    hi link php3Functions                 Function
-    hi link php3Repeat                    Repeat
-    hi link php3Conditional               Conditional
-    hi link php3Label                     Label
-    hi link php3Statement                 Statement
-    hi link php3Keyword                   Statement
-    hi link php3Type                      Type
-    hi link php3Include                   Include
-    hi link php3Define                    Define
-    hi link php3SpecialChar               SpecialChar
-    hi link php3ParentError	         Error
-    hi link php3OctalError	         Error
-    hi link php3Todo                      Todo
-    hi php3Relation guifg=SeaGreen ctermfg=DarkGreen
-    hi php3Operator guifg=SeaGreen ctermfg=DarkGreen
-    hi php3IntVar guifg=Red ctermfg=DarkRed
-    hi php3EnvVar guifg=Red ctermfg=DarkRed
+  if !exists("php_syntax_theme")
+    hi link phpComment                   Comment
+    hi link phpBoolean                   Boolean
+    hi link phpStorageClass              StorageClass
+    hi link phpStructure                 Structure
+    hi link phpStringSingle              String
+    hi link phpStringDouble              String
+    hi link phpNumber                    Number
+    hi link phpFloat                     Float
+    hi phpIdentifier guifg=DarkGray ctermfg=Brown
+    hi link phpFunctions                 Function
+    hi link phpRepeat                    Repeat
+    hi link phpConditional               Conditional
+    hi link phpLabel                     Label
+    hi link phpStatement                 Statement
+    hi link phpKeyword                   Statement
+    hi link phpType                      Type
+    hi link phpInclude                   Include
+    hi link phpDefine                    Define
+    hi link phpSpecialChar               SpecialChar
+    hi link phpParentError	         Error
+    hi link phpOctalError	         Error
+    hi link phpTodo                      Todo
+    hi phpRelation guifg=SeaGreen ctermfg=DarkGreen
+    hi phpOperator guifg=SeaGreen ctermfg=DarkGreen
+    hi phpIntVar guifg=Red ctermfg=DarkRed
+    hi phpEnvVar guifg=Red ctermfg=DarkRed
   endif
 
-  if exists("php3_syntax_theme")
+  if exists("php_syntax_theme")
   
     "default for all themes
-    hi link php3Type             Type
-    hi link php3ParentError	 Error
-    hi link php3OctalError	 Error
-    hi link php3Todo             Todo
-    hi php3Comment               ctermfg=gray
+    hi link phpType             Type
+    hi link phpParentError	 Error
+    hi link phpOctalError	 Error
+    hi link phpTodo             Todo
+    hi phpComment               ctermfg=gray
  
-    hi link php3FunctionsMine     A_FunctionsMine
-    hi link php3StringHtml        A_StringLight
+    hi link phpFunctionsMine     A_FunctionsMine
+    hi link phpStringHtml        A_StringLight
     hi link Delimiter             A_Operator
     "--------------------------------------------
-    hi link php3StringSingle      A_String 
-    hi link php3StringDouble      A_String
-    hi link php3Number            A_Number
-    hi link php3Float             A_Number
-    hi link php3Boolean           A_Number
-    hi link php3Identifier        A_Variable
-    hi link php3IntVar            A_VariableSys
-    hi link php3EnvVar            A_VariableSys
-    hi link php3Include           A_Include
-    hi link php3StorageClass      A_Declare
-    hi link php3Structure         A_Declare
-    hi link php3Define            A_Declare
-    hi link php3Functions         A_Functions
-    hi link php3Repeat            A_Commands
-    hi link php3Conditional       A_Commands
-    hi link php3Label             A_Commands
-    hi link php3Statement         A_Statement
-    hi link php3Keyword           A_Statement
-    hi link php3SpecialChar       A_SpecialChar
-    hi link php3Relation          A_Operator
-    hi link php3Operator          A_Operator
+    hi link phpStringSingle      A_String 
+    hi link phpStringDouble      A_String
+    hi link phpNumber            A_Number
+    hi link phpFloat             A_Number
+    hi link phpBoolean           A_Number
+    hi link phpIdentifier        A_Variable
+    hi link phpIntVar            A_VariableSys
+    hi link phpEnvVar            A_VariableSys
+    hi link phpInclude           A_Include
+    hi link phpStorageClass      A_Declare
+    hi link phpStructure         A_Declare
+    hi link phpDefine            A_Declare
+    hi link phpFunctions         A_Functions
+    hi link phpRepeat            A_Commands
+    hi link phpConditional       A_Commands
+    hi link phpLabel             A_Commands
+    hi link phpStatement         A_Statement
+    hi link phpKeyword           A_Statement
+    hi link phpSpecialChar       A_SpecialChar
+    hi link phpRelation          A_Operator
+    hi link phpOperator          A_Operator
     
-    if php3_syntax_theme == 'forest1'
+    if php_syntax_theme == 'forest1'
       hi A_String         ctermfg=darkcyan
       hi A_StringLight    ctermfg=lightcyan
       hi A_Number         ctermfg=darkmagenta
@@ -528,7 +528,7 @@ if !exists("did_php3_syntax_inits")
       hi A_Operator       ctermfg=white
     endif
     
-    if php3_syntax_theme == 'forest2'
+    if php_syntax_theme == 'forest2'
       hi A_Declare        ctermfg=yellow
       hi A_String         ctermfg=darkcyan
       hi A_StringLight    ctermfg=lightcyan
@@ -551,9 +551,9 @@ if !exists("did_php3_syntax_inits")
   endif  
 endif
 
-let b:current_syntax = "php3"
+let b:current_syntax = "php"
 
-if main_syntax == 'php3'
+if main_syntax == 'php'
   unlet main_syntax
 endif
 
