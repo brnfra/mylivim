@@ -94,9 +94,9 @@ autocmd FileType html inoremap \. &middot;
 "-------------------------------------------------------
 
 " Vim syntax file
-" Language:	php PHP 3.0
+" Language:	PHP 
 " Modificado: Bruno do nascimento Franco - <devlabbr@outlook.com>
-" Ultima_modificao: Qui 02 Fev 2020 13:02:46 BRT
+" Ultima_modificao: Qui 20 Fev 2020 13:02:46 BRT
 " Download: https://github.com/brnfra/web
 " Licence: Licença: Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
