@@ -1,6 +1,6 @@
 " Autor: Bruno do nascimento Franco - <devlabbr@outlook.com>
 " Ultima_modificao: Qui 19 Fev 2020 13:02:46 BRT
-" Download: https://github.com/brnfra/web
+" Download: https://github.com/brnfra/mylivim.git
 " Licence: Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
 "           causados pelo uso deste arquivo.
