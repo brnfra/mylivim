@@ -1,5 +1,8 @@
 # My linux tags for Vim
 
+>html
+
+
 ## Installation
 
 Copy the file on your .vim/bundle/ folder.
