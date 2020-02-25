@@ -151,7 +151,9 @@ endif
 
 "if you'll put this file in your home dir, use absolute path to html.vim
 "so <sfile>:p:h/html.vim
+if has('unix')
 so /usr/share/vim/vim81/syntax/html.vim
+endif
 
 syn cluster htmlPreproc add=phpRegionInsideHtmlTags
 
@@ -160,8 +162,9 @@ if exists( "php_sql_query")
 
     "if you'll put this file in your home dir, use absolute path to html.vim
     "syn include @phpSql <sfile>:p:h/sql.vim
+    if has('unix')
     syn include @phpSql /usr/share/vim/vim81/syntax/sql.vim
-
+    endif
   endif
 endif
 syn cluster phpSql remove=sqlString,sqlComment
