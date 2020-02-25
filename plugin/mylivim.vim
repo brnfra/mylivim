@@ -1,5 +1,5 @@
 " Autor: Bruno do nascimento Franco - <devlabbr@outlook.com>
-" Ultima_modificao: Qui 19 Fev 2020 13:02:46 BRT
+" Ultima_modificao: Qui 24 Fev 2020 13:02:46 BRT
 " Download: https://github.com/brnfra/mylivim.git
 " Licence: Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -44,7 +44,7 @@ autocmd FileType html inoremap <sub <sub></sub><esc>5hi
 autocmd FileType html inoremap <sup <sup></sup><esc>5hi
 autocmd FileType html inoremap <u <u></u><esc>3hi
 "Spam definition
-autocmd FileType html inoremap <abb <abbr></abbr><esc>6hi   
+autocmd FileType html inoremap <abr <abbr></abbr><esc>6hi   
 
 
 
@@ -80,8 +80,7 @@ autocmd FileType html inoremap <li <li></li><esc>4hi
 
 autocmd FileType html inoremap <img <img src="" alt="description_file"> 
 
-"
-"
+
 ""-------------------Specials
 autocmd FileType html inoremap \& &amp;
 autocmd FileType html inoremap \< &lt;
@@ -93,10 +92,6 @@ autocmd FileType html inoremap \. &middot;
 "                       -- PHP --
 "-------------------------------------------------------
 
-
-autocmd FileType php inoremap <? <?php<esc>10o<esc>i?><esc>9<up>i
-
-" Vim syntax file
 " Language:	PHP 
 " Modificado: Bruno do nascimento Franco - <devlabbr@outlook.com>
 " Ultima_modificao: Qui 20 Fev 2020 13:02:46 BRT
@@ -129,7 +124,7 @@ autocmd FileType php inoremap <? <?php<esc>10o<esc>i?><esc>9<up>i
 
 
 "--------------------------------------    "-------------------------------------
-autocmd FileType php inoremap <? <?php<esc>10o<esc>i?><esc>9<up>i            
+autocmd FileType php inoremap <? <?php<esc>2o<esc>i?><esc>ki            
 
 
 
