@@ -16,13 +16,13 @@
 "                       -- HTML --
 "-------------------------------------------------------
 "set syntax=html
-"au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+"au FileType html,htm,php,sxhtml,xml,xhtml setl ofu=htmlcomplete#CompleteTags
 "so /usr/share/vim/vim81/syntax/html.vim
 " html
 " for html files, 2 spaces
 autocmd Filetype html setlocal ts=4 sw=4 
 "-- body and head
-autocmd FileType html inoremap <html 
+autocmd FileType html,htm,php,sxhtml,xml inoremap <html 
             \<!DOCTYPE html><Enter><html lang="pt-br"><Enter><head><Enter><!-- Required meta tags --><Enter>
             \<meta charset="utf-8"><Enter>
             \<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><Enter>
@@ -33,59 +33,59 @@ autocmd FileType html inoremap <html
             \<title>Meu Site</title><Enter></head><Enter><body><Enter><Enter><Enter></body><Enter></html>
 
 "--  tags
-autocmd FileType html inoremap <e <em></em><esc>4hi 
-autocmd FileType html inoremap <u <u></u><esc>3hi
-autocmd FileType html inoremap <s <strong></strong><esc>8hi
-autocmd FileType html inoremap <p <p id="" class=""></p><esc>3hi
-autocmd FileType html inoremap <sp <span id="" class=""></span><esc>v6hx2o<esc>p0<esc>==<esc>ki
-autocmd FileType html inoremap <i <i></i><esc>3hi
-autocmd FileType html inoremap <b <b></b><esc>3hi
-autocmd FileType html inoremap <sub <sub></sub><esc>5hi
-autocmd FileType html inoremap <sup <sup></sup><esc>5hi
-autocmd FileType html inoremap <u <u></u><esc>3hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <e <em></em><esc>4hi 
+autocmd FileType html,htm,php,sxhtml,xml inoremap <u <u></u><esc>3hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <s <strong></strong><esc>8hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <p <p id="" class=""></p><esc>3hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <sp <span id="" class=""></span><esc>v6hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,php,sxhtml,xml inoremap <i <i></i><esc>3hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <b <b></b><esc>3hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <sub <sub></sub><esc>5hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <sup <sup></sup><esc>5hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <u <u></u><esc>3hi
 "Spam definition
-autocmd FileType html inoremap <abr <abbr></abbr><esc>6hi   
+autocmd FileType html,htm,php,sxhtml,xml inoremap <abr <abbr></abbr><esc>6hi   
 
 
 
-autocmd FileType html inoremap <h1 <h1></h1><esc>4hi
-autocmd FileType html inoremap <h2 <h2></h2><esc>4hi
-autocmd FileType html inoremap <h3 <h3></h3><esc>4hi
-autocmd FileType html inoremap <h4 <h4></h4><esc>4hi
-autocmd FileType html inoremap <h5 <h5></h5><esc>4hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <h1 <h1></h1><esc>4hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <h2 <h2></h2><esc>4hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <h3 <h3></h3><esc>4hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <h4 <h4></h4><esc>4hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <h5 <h5></h5><esc>4hi
 
-autocmd FileType html inoremap <di <div id="" class=""></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,php,sxhtml,xml inoremap <di <div id="" class=""></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
 
 "Form
-autocmd FileType html inoremap <fo <form action="" method=""></form><esc>v6hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,sxhtml,xml inoremap <fo <form action="" method=""></form><esc>v6hx2o<esc>p0<esc>==<esc>ki
             \<label for="[name]">[Say Label]</label><br><esc>o
             \<input type="" id="" class="" value=""><br><esc>o
             \<input type="submit" id="" class="" value="[Submit]"><br><esc>ki
 
 "Ordened List
-autocmd FileType html inoremap <ol <ol type=""></ol><esc>v4hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,php,sxhtml,xml inoremap <ol <ol type=""></ol><esc>v4hx2o<esc>p0<esc>==<esc>ki
 
-autocmd FileType html inoremap <li <li></li><esc>4hi      
+autocmd FileType html,htm,php,sxhtml,xml inoremap <li <li></li><esc>4hi      
 
 "UnOrdened List
-autocmd FileType html inoremap <ul <ul type=""></ul><esc>v4hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,php,sxhtml,xml inoremap <ul <ul type=""></ul><esc>v4hx2o<esc>p0<esc>==<esc>ki
 
-autocmd FileType html inoremap <li <li></li><esc>4hi      
+autocmd FileType html,htm,php,sxhtml,xml inoremap <li <li></li><esc>4hi      
 
 "Table
-autocmd FileType html inoremap <ta <table border="" width=""></table><esc>v7hx2o<esc>p0<esc>==<esc>k>>i
+autocmd FileType html,htm,php,sxhtml,xml inoremap <ta <table border="" width=""></table><esc>v7hx2o<esc>p0<esc>==<esc>k>>i
             \<tr></tr><esc>v4hx2o<esc>p0<esc>==<esc>ki
             \<th></th><esc>4hi[Column1]<esc>o<esc>i<th></th><esc>4hi[Column2]<esc>o<esc>i<th></th><esc>4hi[Column3]<esc>
-autocmd FileType html inoremap <li <li></li><esc>4hi      
+autocmd FileType html,htm,php,sxhtml,xml inoremap <li <li></li><esc>4hi      
 
-autocmd FileType html inoremap <img <img src="" alt="description_file"> 
+autocmd FileType html,htm,php,sxhtml,xml inoremap <img <img src="" alt="description_file"> 
 
 
 ""-------------------Specials
-autocmd FileType html inoremap \& &amp;
-autocmd FileType html inoremap \< &lt;
-autocmd FileType html inoremap \> &gt;
-autocmd FileType html inoremap \. &middot;
+autocmd FileType html,htm,php,sxhtml,xml inoremap \& &amp;
+autocmd FileType html,htm,php,sxhtml,xml inoremap \< &lt;
+autocmd FileType html,htm,php,sxhtml,xml inoremap \> &gt;
+autocmd FileType html,htm,php,sxhtml,xml inoremap \. &middot;
 
 
 "-------------------------------------------------------
@@ -545,7 +545,7 @@ if !exists("did_php_syntax_inits")
   endif  
 endif
 
-let b:current_syntax = "php"
+""let b:current_syntax = "php"
 
 if main_syntax == 'php'
   unlet main_syntax
