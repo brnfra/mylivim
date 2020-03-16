@@ -1,6 +1,6 @@
-" Autor: Bruno do nascimento Franco - <devlabbr@outlook.com>
+" Autor: Bruno Franco
 " Ultima_modificao: Qui 24 Fev 2020 13:02:46 BRT
-" Download: https://github.com/brnfra/mylivim.git
+" Download: git@github.com:brnfra
 " Licence: Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
 "           causados pelo uso deste arquivo.
@@ -147,7 +147,7 @@ endif
 "if you'll put this file in your home dir, use absolute path to html.vim
 "so <sfile>:p:h/html.vim
 if has('unix')
-so /usr/share/vim/vim81/syntax/html.vim
+""so /usr/share/vim/vim81/syntax/html.vim
 endif
 
 syn cluster htmlPreproc add=phpRegionInsideHtmlTags
@@ -158,7 +158,7 @@ if exists( "php_sql_query")
     "if you'll put this file in your home dir, use absolute path to html.vim
     "syn include @phpSql <sfile>:p:h/sql.vim
     if has('unix')
-    syn include @phpSql /usr/share/vim/vim81/syntax/sql.vim
+ ""   syn include @phpSql /usr/share/vim/vim81/syntax/sql.vim
     endif
   endif
 endif
