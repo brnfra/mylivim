@@ -15,12 +15,12 @@ git clone https://github.com/brnfra/mylivim.git
 
 ```
 
-Plug Install
+>Plug Install
+
 Put this on your vimrc
 
 ```
 let g:plug_url_format = 'git@github.com:%s.git'
-    "Myplugin
 Plug 'brnfra/mylivim'
 unlet g:plug_url_format
 ```
