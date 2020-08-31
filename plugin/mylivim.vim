@@ -13,7 +13,7 @@
 "<S-w>       - Shift + w
 "<F1>        - F1
 "-------------------------------------------------------
-"                       -- HTML --
+"                       -- HTML --      {{{
 "-------------------------------------------------------
 "set syntax=html
 "au FileType html,htm,php,sxhtml,xml,xhtml setl ofu=htmlcomplete#CompleteTags
@@ -28,6 +28,7 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap <html
             \<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><Enter>
             \<meta http-equiv="X-UA-Compatible" content="IE-edge"><Enter><Enter>
             \<!--Opcional--><Enter>
+            \<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /><Enter>
             \<link rel="stylesheet" type="text/css" href=""><Enter>
             \<script type="text/javascript" src="meuArquivo.js"></script><Enter>
             \<title>Meu Site</title><Enter></head><Enter><body><Enter><Enter><Enter></body><Enter></html>
@@ -45,15 +46,11 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap <sup <sup></sup><esc>5hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <u <u></u><esc>3hi
 "Spam definition
 autocmd FileType html,htm,php,sxhtml,xml inoremap <abr <abbr></abbr><esc>6hi   
-
-
-
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h1 <h1></h1><esc>4hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h2 <h2></h2><esc>4hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h3 <h3></h3><esc>4hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h4 <h4></h4><esc>4hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h5 <h5></h5><esc>4hi
-
 autocmd FileType html,htm,php,sxhtml,xml inoremap <di <div id="" class=""></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
 
 "Form
@@ -64,12 +61,10 @@ autocmd FileType html,htm,sxhtml,xml inoremap <fo <form action="" method=""></fo
 
 "Ordened List
 autocmd FileType html,htm,php,sxhtml,xml inoremap <ol <ol type=""></ol><esc>v4hx2o<esc>p0<esc>==<esc>ki
-
 autocmd FileType html,htm,php,sxhtml,xml inoremap <li <li></li><esc>4hi      
 
 "UnOrdened List
 autocmd FileType html,htm,php,sxhtml,xml inoremap <ul <ul type=""></ul><esc>v4hx2o<esc>p0<esc>==<esc>ki
-
 autocmd FileType html,htm,php,sxhtml,xml inoremap <li <li></li><esc>4hi      
 
 "Table
@@ -77,9 +72,7 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap <ta <table border="" width="">
             \<tr></tr><esc>v4hx2o<esc>p0<esc>==<esc>ki
             \<th></th><esc>4hi[Column1]<esc>o<esc>i<th></th><esc>4hi[Column2]<esc>o<esc>i<th></th><esc>4hi[Column3]<esc>
 autocmd FileType html,htm,php,sxhtml,xml inoremap <li <li></li><esc>4hi      
-
 autocmd FileType html,htm,php,sxhtml,xml inoremap <img <img src="" alt="description_file"> 
-
 
 ""-------------------Specials
 autocmd FileType html,htm,php,sxhtml,xml inoremap \& &amp;
@@ -87,9 +80,14 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap \< &lt;
 autocmd FileType html,htm,php,sxhtml,xml inoremap \> &gt;
 autocmd FileType html,htm,php,sxhtml,xml inoremap \. &middot;
 
+"------------------------------------------}}}
+"-------------------------------------------------------
+"                       -- LATEX --
+"-------------------------------------------------------
+
 
 "-------------------------------------------------------
-"                       -- PHP --
+"                       -- PHP -- {{{
 "-------------------------------------------------------
 
 " Language:	PHP 
@@ -552,3 +550,5 @@ if main_syntax == 'php'
 endif
 
 " vim: ts=8
+"
+"------------------------------------------}}}
