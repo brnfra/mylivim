@@ -1,7 +1,7 @@
 " ====================================================================
 " Arquivo:mylivim.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 25-08-2020
+" Ultima_modificacao: 29-03-2021
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -49,12 +49,9 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap <h2 <h2></h2><esc>4hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h3 <h3></h3><esc>4hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h4 <h4></h4><esc>4hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h5 <h5></h5><esc>4hi
-<<<<<<< HEAD
 autocmd FileType html,htm,php,sxhtml,xml inoremap <di <div id="" class=""></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
-=======
 
 autocmd FileType html,htm,php,sxhtml,xml inoremap <di <div id="" class="" style=""></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
->>>>>>> 3eb61f02194b2d3408d8280084b0f381c9d1da08
 
 "Form
 autocmd FileType html,htm,sxhtml,xml inoremap <fo <form action="" method="" style=""></form><esc>v6hx2o<esc>p0<esc>==<esc>ki
