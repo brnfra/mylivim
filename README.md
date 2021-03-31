@@ -27,9 +27,9 @@ unlet g:plug_url_format
 
 ### Documentation 
 
-The most of commands ends with dot in **insert mode** on VIM. Like described bellow;
+Just begin the tag in **insert mode** on VIM. Like described bellow;
  
-| Command | Write complete tag | 
+| Start with | Write complete tag | 
 | --- | --- |
 | \<e | \<em\> | 
 | \<u | \<u\> | 
@@ -51,3 +51,5 @@ The most of commands ends with dot in **insert mode** on VIM. Like described bel
 | \\< | &lt; | 
 | \\> | &gt; | 
 | \\. | &middot; | 
+
+![Demo](https://github.com/brnfra/vim-short-html/blob/master/assets/plugin-html.gif)
