@@ -90,7 +90,7 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap \. &middot;
 "                       -- PHP -- {{{
 "-------------------------------------------------------
 
-" Language:	PHP 
+" Language:	html for PHP 
 " Modificado: Bruno do nascimento Franco - <devlabbr@outlook.com>
 " Ultima_modificao: Qui 20 Fev 2020 13:02:46 BRT
 " Download: https://github.com/brnfra/web
