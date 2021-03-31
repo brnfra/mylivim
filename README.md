@@ -52,4 +52,4 @@ Just begin the tag in **insert mode** on VIM. Like described bellow;
 | \\> | &gt; | 
 | \\. | &middot; | 
 
-![Demo](https://github.com/brnfra/vim-short-html/blob/master/assets/plugin-html.gif)
+![Demo](https://github.com/brnfra/vim-short-html/blob/master/assets/plugin-html-vim.gif)
