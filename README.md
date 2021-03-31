@@ -1,4 +1,4 @@
-# My linux tags for Vim
+# My tags for Vim
 
 >html
 
@@ -9,9 +9,9 @@ Copy the file on your .vim/bundle/ folder.
 
 
 ```
-mkdir -p .vim/bundle/mylivim
+mkdir -p .vim/bundle/vim-short-html
 cd .vim/bundle/
-git clone https://github.com/brnfra/mylivim.git
+git clone https://github.com/brnfra/vim-short-html.git
 
 ```
 
@@ -21,7 +21,7 @@ Put this on your vimrc
 
 ```
 let g:plug_url_format = 'git@github.com:%s.git'
-Plug 'brnfra/mylivim'
+Plug 'brnfra/vim-short-html'
 unlet g:plug_url_format
 ```
 
