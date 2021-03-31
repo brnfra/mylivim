@@ -23,3 +23,31 @@ Plug 'brnfra/vim-short-html'
 unlet g:plug_url_format
 ```
 
+## Usage
+
+### Documentation 
+
+The most of commands ends with dot in **insert mode** on VIM. Like described bellow;
+ 
+| Command | Write complete tag | 
+| --- | --- |
+| \<e | \<em\> | 
+| \<u | \<u\> | 
+| \<s | \<strong\> | 
+| \<p | \<p\> | 
+| \<sp | \<span\> | 
+| \<i | \<i\> | 
+| \<b | \<b\> | 
+| \<sub | \<sub\> | 
+| \<fo | \<form\> | 
+| \<html | \<html\> | 
+| \<div | \<div\> | 
+| \<ol | \<ol\> | 
+| \<ul | \<ul\> | 
+| \<ta | \<table\> |
+| \<li | \<li\> | 
+| \<img | \<img\> | 
+| \\& | &amp; | 
+| \\< | &lt; | 
+| \\> | &gt; | 
+| \\. | &middot; | 
