@@ -1,6 +1,4 @@
-# My tags for Vim
-
->html
+# My tags shortcuts for Vim-HTML editing
 
 
 ## Installation
