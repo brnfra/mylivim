@@ -19,6 +19,7 @@ syn keyword basicLanguageKeywords DOCTYPE meta
 syn keyword celBlockCmd html head body
 
 syn region celDescBlock start="<!--" end="-->" fold transparent
+syn region celDescBlock start="<#--" end="-->" fold transparent
 syn match celComment '<!--' contains=celTodo
 
 "vim higlights
