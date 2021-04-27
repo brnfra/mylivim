@@ -1,8 +1,8 @@
 
 
-mylivim theme copyright Bruno Franco.
+vim-short-html theme copyright Bruno Franco.
 
-mylivim.vim source code is licensed as follows:
+vim-short-html source code is licensed as follows:
 
 The MIT License (MIT)
 
