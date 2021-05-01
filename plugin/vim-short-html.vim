@@ -1,18 +1,18 @@
 " ====================================================================
-" Arquivo:mylivim.vim
+" Arquivo: vim-short-html.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 29-03-2021
+" Ultima_modificacao: 01-05-2021
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
 "             causados pelo uso deste arquivo.
 "
-""           _           
-""    __   _(_)_ __ ___  
-""    \ \ / / | '_ ` _ \ 
-""     \ V /| | | | | | |
-""      \_/ |_|_| |_| |_|
-""     
+"           _           
+"    __   _(_)_ __ ___  
+"    \ \ / / | '_ ` _ \ 
+"     \ V /| | | | | | |
+"      \_/ |_|_| |_| |_|
+"     
 "
 "-------------------------------------------------------
 "                       -- HTML --      {{{
@@ -27,7 +27,7 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap <html
             \<meta http-equiv="X-UA-Compatible" content="IE-edge"><Enter><Enter>
             \<!--Opcional--><Enter>
             \<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /><Enter>
-            \<link rel="stylesheet" type="text/css" href=""><Enter>
+            \<link rel="stylesheet" type="text/css" href="<++>"><Enter>
             \<script type="text/javascript" src="meuArquivo.js"></script><Enter>
             \<title>Meu Site</title><Enter></head><Enter><body><Enter><Enter><Enter></body><Enter></html>
 
@@ -35,8 +35,8 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap <html
 autocmd FileType html,htm,php,sxhtml,xml inoremap <e <em></em><esc>4hi 
 autocmd FileType html,htm,php,sxhtml,xml inoremap <u <u></u><esc>3hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <s <strong></strong><esc>8hi
-autocmd FileType html,htm,php,sxhtml,xml inoremap <p <p id="" class="" style=""></p><esc>3hi
-autocmd FileType html,htm,php,sxhtml,xml inoremap <sp <span id="" class="" style=""></span><esc>v6hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,php,sxhtml,xml inoremap <p <p id="<++>" class="<++>" style="<++>"><++></p><esc>3hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <sp <span id="<++>" class="<++>" style="<++>"><++></span><esc>v6hx2o<esc>p0<esc>==<esc>ki
 autocmd FileType html,htm,php,sxhtml,xml inoremap <i <i></i><esc>3hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <b <b></b><esc>3hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <sub <sub></sub><esc>5hi
@@ -49,32 +49,33 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap <h2 <h2></h2><esc>4hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h3 <h3></h3><esc>4hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h4 <h4></h4><esc>4hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h5 <h5></h5><esc>4hi
-autocmd FileType html,htm,php,sxhtml,xml inoremap <di <div id="" class=""></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,php,sxhtml,xml inoremap <di <div id="<++>" class="<++>"><++></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
 
-autocmd FileType html,htm,php,sxhtml,xml inoremap <di <div id="" class="" style=""></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,php,sxhtml,xml inoremap <di <div id="<++>" class="<++>" style="<++>"><++></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
+
 
 "Form
-autocmd FileType html,htm,sxhtml,xml inoremap <fo <form action="" method="" style=""></form><esc>v6hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,sxhtml,xml inoremap <fo <form action="<++>" method="<++>" style="<++>"></form><esc>v6hx2o<esc>p0<esc>==<esc>ki
             \<label for="[name]">[Say Label]</label><br><esc>o
-            \<input type="" id="" class="" value=""><br><esc>o
-            \<input type="submit" id="" class="" value="[Submit]"><br><esc>ki
+            \<input type="<++>" id="<++>" class="<++>" value="<++>"><br><esc>o
+            \<input type="submit" id="<++>" class="<++>" value="[Submit]"><br><esc>ki
 
 "Ordened List
-autocmd FileType html,htm,php,sxhtml,xml inoremap <ol <ol type=""></ol><esc>v4hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,php,sxhtml,xml inoremap <ol <ol type="<++>"></ol><esc>v4hx2o<esc>p0<esc>==<esc>ki
 autocmd FileType html,htm,php,sxhtml,xml inoremap <li <li></li><esc>4hi      
 
 "UnOrdened List
-autocmd FileType html,htm,php,sxhtml,xml inoremap <ul <ul type=""></ul><esc>v4hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,php,sxhtml,xml inoremap <ul <ul type="<++>"></ul><esc>v4hx2o<esc>p0<esc>==<esc>ki
 autocmd FileType html,htm,php,sxhtml,xml inoremap <li <li></li><esc>4hi      
 
 "Table
-autocmd FileType html,htm,php,sxhtml,xml inoremap <ta <table border="" width="" style=""></table><esc>v7hx2o<esc>p0<esc>==<esc>k>>i
+autocmd FileType html,htm,php,sxhtml,xml inoremap <ta <table border="<++>" width="<++>" style="<++>"></table><esc>v7hx2o<esc>p0<esc>==<esc>k>>i
             \<tr></tr><esc>v4hx2o<esc>p0<esc>==<esc>ki
             \<th></th><esc>4hi[Column1]<esc>o<esc>i<th></th><esc>4hi[Column2]<esc>o<esc>i<th></th><esc>4hi[Column3]<esc>
 autocmd FileType html,htm,php,sxhtml,xml inoremap <li <li></li><esc>4hi      
-autocmd FileType html,htm,php,sxhtml,xml inoremap <img <img src="" alt="description_file"> 
+autocmd FileType html,htm,php,sxhtml,xml inoremap <img <img src="<++>" alt="description_file"> 
 
-""-------------------Specials
+"<++>"-------------------Specials
 autocmd FileType html,htm,php,sxhtml,xml inoremap \& &amp;
 autocmd FileType html,htm,php,sxhtml,xml inoremap \< &lt;
 autocmd FileType html,htm,php,sxhtml,xml inoremap \> &gt;
@@ -145,7 +146,7 @@ endif
 "if you'll put this file in your home dir, use absolute path to html.vim
 "so <sfile>:p:h/html.vim
 if has('unix')
-""so /usr/share/vim/vim81/syntax/html.vim
+"<++>"so /usr/share/vim/vim81/syntax/html.vim
 endif
 
 syn cluster htmlPreproc add=phpRegionInsideHtmlTags
@@ -156,7 +157,7 @@ if exists( "php_sql_query")
     "if you'll put this file in your home dir, use absolute path to html.vim
     "syn include @phpSql <sfile>:p:h/sql.vim
     if has('unix')
- ""   syn include @phpSql /usr/share/vim/vim81/syntax/sql.vim
+ "<++>"   syn include @phpSql /usr/share/vim/vim81/syntax/sql.vim
     endif
   endif
 endif
@@ -543,7 +544,7 @@ if !exists("did_php_syntax_inits")
   endif  
 endif
 
-""let b:current_syntax = "php"
+"<++>"let b:current_syntax = "php"
 
 if main_syntax == 'php'
   unlet main_syntax
